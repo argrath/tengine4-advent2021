@@ -17,11 +17,11 @@
 -- Nicolas Casalini "DarkGod"
 -- darkgod@te4.org
 
-name = "Example Module"
-long_name = "Example Module for T-Engine4"
-short_name = "example"
-author = { "DarkGod", "darkgod@te4.org" }
-homepage = "http://te4.org/modules:example"
+name = "Advent2021"
+long_name = "Advent2021 Module"
+short_name = "advent2021"
+author = { "argrath", "argrath@ub32.org" }
+homepage = "http://argrath.ub32.org"
 version = {1,1,5}
 engine = {1,1,5,"te4"}
 description = [[
