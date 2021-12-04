@@ -28,4 +28,5 @@ description = [[
 This is *NOT* a game, just an example/template to make your own using the T-Engine4.
 ]]
 starter = "mod.load"
+i18n_support = true
 show_only_on_cheat = true -- Example modules are not shown to normal players

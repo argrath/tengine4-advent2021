@@ -41,6 +41,8 @@ local DebugConsole = require "engine.DebugConsole"
 local FlyingText = require "engine.FlyingText"
 local Tooltip = require "engine.Tooltip"
 
+local FontPackage = require "engine.FontPackage"
+
 local QuitDialog = require "mod.dialogs.Quit"
 
 module(..., package.seeall, class.inherit(engine.GameTurnBased, engine.interface.GameTargeting))
@@ -56,15 +58,16 @@ function _M:init()
 end
 
 function _M:run()
-	self.flash = LogFlasher.new(0, 0, self.w, 20, nil, nil, nil, {255,255,255}, {0,0,0})
-	self.logdisplay = LogDisplay.new(0, self.h * 0.8, self.w * 0.5, self.h * 0.2, nil, nil, nil, {255,255,255}, {30,30,30})
-	self.hotkeys_display = HotkeysDisplay.new(nil, self.w * 0.5, self.h * 0.8, self.w * 0.5, self.h * 0.2, {30,30,0})
+	local font = FontPackage:getFont("default")
+	self.flash = LogFlasher.new(0, 0, self.w, 20, nil, font, nil, {255,255,255}, {0,0,0})
+	self.logdisplay = LogDisplay.new(0, self.h * 0.8, self.w * 0.5, self.h * 0.2, nil, font, nil, {255,255,255}, {30,30,30})
+	self.hotkeys_display = HotkeysDisplay.new(nil, self.w * 0.5, self.h * 0.8, self.w * 0.5, self.h * 0.2, {30,30,0}, font)
 	self.npcs_display = ActorsSeenDisplay.new(nil, self.w * 0.5, self.h * 0.8, self.w * 0.5, self.h * 0.2, {30,30,0})
 	self.tooltip = Tooltip.new(nil, nil, {255,255,255}, {30,30,30})
 	self.flyers = FlyingText.new()
 	self:setFlyingText(self.flyers)
 
-	self.log = function(style, ...) if type(style) == "number" then self.logdisplay(...) self.flash(style, ...) else self.logdisplay(style, ...) self.flash(self.flash.NEUTRAL, style, ...) end end
+	self.log = function(arg1, arg2, ...) if type(arg1) == "number" then self.logdisplay(arg2, ...) self.flash(arg1, _t(arg2), ...) else self.logdisplay(arg1, arg2, ...) self.flash(self.flash.NEUTRAL, _t(arg1), arg2, ...) end end
 	self.logSeen = function(e, style, ...) if e and self.level.map.seens(e.x, e.y) then self.log(style, ...) end end
 	self.logPlayer = function(e, style, ...) if e == self.player then self.log(style, ...) end end
 	self.logNewest = function() return self.logdisplay:getNewestLine() end

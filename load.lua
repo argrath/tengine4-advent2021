@@ -28,6 +28,16 @@ local ActorLevel = require "engine.interface.ActorLevel"
 local ActorTemporaryEffects = require "engine.interface.ActorTemporaryEffects"
 local Birther = require "engine.Birther"
 
+local UIBase = require "engine.ui.Base"
+local FontPackage = require "engine.FontPackage"
+UIBase.font = FontPackage:get("default")
+UIBase.font_bold = FontPackage:get("bold")
+UIBase.font_mono = FontPackage:get("mono")
+UIBase.font_h = UIBase.font:lineSkip()
+UIBase.font_bold_h = UIBase.font_bold:lineSkip()
+UIBase.font_mono_w = UIBase.font_mono:size(" ")
+UIBase.font_mono_h = UIBase.font_mono:lineSkip()+2
+
 -- Useful keybinds
 KeyBind:load("move,hotkeys,inventory,actions,interface,debug")
 
