@@ -96,7 +96,7 @@ function _M:use(item)
 		local save = Savefile.new(game.save_name)
 		save:delete()
 		save:close()
-		util.showMainMenu()
+		core.game.exit_engine()
 	elseif act == "cheat" then
 		game.logPlayer(self.actor, "#LIGHT_BLUE#You resurrect! CHEATER !")
 

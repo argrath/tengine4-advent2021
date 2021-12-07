@@ -19,7 +19,7 @@ function _M:init()
 		ACCEPT = function()
 			-- savefile_pipe is created as a global by the engine
 			savefile_pipe:push(game.save_name, "game", game)
-			util.showMainMenu()
+			core.game.exit_engine()
 		end,
 	})
 end
