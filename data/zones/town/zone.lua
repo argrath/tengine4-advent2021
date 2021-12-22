@@ -3,37 +3,30 @@
 -- See COPYING.md for details.
 
 return {
-	name = _t"Angband",
+	name = _t"Town",
 	level_range = {1, 1},
-	max_level = 2,
+	max_level = 1,
 	decay = {300, 800},
-	width = 50, height = 50,
+	width = 20, height = 20,
 	persistent = "zone",
 	generator =  {
 		map = {
-			class = "engine.generator.map.Octopus",
+			class = "engine.generator.map.Town",
 			-- number of rooms
---			nb_rooms = 3,
+			nb_rooms = 3,
 			rooms = {"simple", "pilar"},
 			lite_room_chance = 100,
 			['.'] = "FLOOR",
 			['#'] = "WALL",
-			up = "UP",
-			down = "DOWN",
+			up = "DOWN_TOWN",
 			door = "DOOR",
 		},
 		actor = {
 			class = "engine.generator.actor.Random",
 			nb_npc = {2, 3},
-			guardian = "KING", -- The guardian is set in the static map
 		},
 	},
 	levels =
 	{
-		[1] = {
-			generator = { map = {
-				up = "UP_TOWN",
-			}, },
-		},
 	},
 }

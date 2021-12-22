@@ -3,13 +3,23 @@
 -- See COPYING.md for details.
 
 newEntity{
-	define_as = "UP_WILDERNESS",
-	name = "exit to the wilds",
+	define_as = "UP_TOWN",
+	name = "exit to the town",
 	display = '<', color_r=255, color_g=0, color_b=255, back_color=colors.DARK_GREY,
 	always_remember = true,
 	notice = true,
 	change_level = 1,
-	change_zone = "wilderness",
+	change_zone = "town",
+}
+
+newEntity{
+	define_as = "DOWN_TOWN",
+	name = "exit to the town",
+	display = '>', color_r=255, color_g=0, color_b=255, back_color=colors.DARK_GREY,
+	always_remember = true,
+	notice = true,
+	change_level = 1,
+	change_zone = "dungeon",
 }
 
 newEntity{

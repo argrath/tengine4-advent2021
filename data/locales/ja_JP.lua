@@ -65,6 +65,7 @@ t("kobold", "コボルド", "entity subtype")
 t("Ugly and green!", "　緑色のキモイ奴！", "_t")
 t("kobold warrior", "コボルド戦士", "entity name")
 t("armoured kobold warrior", "武装コボルド戦士", "entity name")
+t("Singing, happy drunk", "歌を口ずさむ幸せな酔っぱらい", "entity name")
 
 ------------------------------------------------
 section "mod-example/data/talents.lua"
@@ -76,7 +77,8 @@ t("Acid Spray", "アシッドスプレー", "talent name")
 ------------------------------------------------
 section "mod-example/data/zones/dungeon/zone.lua"
 
-t("Old ruins", "古代の廃墟", "_t")
+t("Angband", "鉄獄", "_t")
+t("Town", "街", "_t")
 
 ------------------------------------------------
 section "mod-example/dialogs/DeathDialog.lua"
